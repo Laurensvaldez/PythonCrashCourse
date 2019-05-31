@@ -4,14 +4,14 @@ class User:
 
     # Create two attributes called first_name and last_name
     # and then create several other attributes that are typically stored in a user profile
-    def __init__(self, first_name, last_name, age, birthplace, relationship_status, login_attempts):
+    def __init__(self, first_name, last_name, age, birthplace, relationship_status):
         """Initialize the first name and last name"""
         self.first_name = first_name.title()
         self.last_name = last_name.title()
         self.age = age
         self.birthplace = birthplace.title()
         self.relationship_status = relationship_status
-        self.login_attempts = login_attempts
+        self.login_attempts = 0
 
     def describe_user(self):
         """This method prints a summary of the user"""
@@ -31,11 +31,34 @@ class User:
         greeting = "Hello " + self.first_name + ", I hope you have a wonderful day!"
         print(greeting)
 
+    def increment_login_attempts(self):
+        """Increment the value of login by 1."""
+        self.login_attempts += 1
 
-    def increment_login_attempts(self, login_attempts):
-        """Write another method called reset_login_attempts() that resets the value of login_attempts to 0"""
-        self.increment_login_attempts()
 
-# Write another method called reset_login_attempts() that resets the value of login_attempts to 0
+    # Write another method called reset_login_attempts() that resets the value of login_attempts to 0
+    def reset_login_attempts(self):
+        self.login_attempts = 0
+
 # Make an instance of the User class and call increment_login_attempts() several times, and call reset_login_attempts()
+laurens = User("Laurens", "Salcedo Valdez", 29, "Rotterdam", "in a relationship")
+laurens.describe_user()
+laurens.greet_user()
+
+laurens.increment_login_attempts()
+print("Login attempts are: " + str(laurens.login_attempts))
+
+laurens.increment_login_attempts()
+print("Login attempts are: " + str(laurens.login_attempts))
+
+laurens.increment_login_attempts()
+print("Login attempts are: " + str(laurens.login_attempts))
+
+laurens.increment_login_attempts()
+print("Login attempts are: " + str(laurens.login_attempts))
+
+laurens.reset_login_attempts()
+print("Login attempts are reset to: " + str(laurens.login_attempts))
+
 # Print login_attempts again to make sure it was reset to 0
+print("Login attempts are reset to: " + str(laurens.login_attempts))
